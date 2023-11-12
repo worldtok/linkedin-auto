@@ -1,4 +1,4 @@
-# FACEBOOK SCRAPPER BOT
+# LINKEDIN AUTO CHAT BOT WITH CHATGPT
 
 You will need to have node installed on your system
 
@@ -8,7 +8,7 @@ You will need to have node installed on your system
 
 2. mongodb [MongoDb](https://www.mongodb.com/try/download/community)
 
-2.1. Ensure that you install mongodb compass while installing mongodb
+3. Ensure that you install mongodb compass while installing mongodb
 
 ## settings
 
