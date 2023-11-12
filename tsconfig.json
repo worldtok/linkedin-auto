@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["es2019", "ES2021", "ES2022", "es2021.string", "es2020.symbol.wellknown", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Node",
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "outDir": "app/",
+    "baseUrl": "./"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

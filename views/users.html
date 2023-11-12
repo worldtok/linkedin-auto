@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts</title>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="margin-bottom: 1rem;">
+    <a href="/">Home</a>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>website</th>
+
+        <th>Logged in</th>
+        <th>Active</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.map(a=>{ %>
+        <tr>
+          <td>
+            <a href="/users/<%- a.id %>" target="_blank" rel="noopener noreferrer">
+              <%- a.username %>
+            </a>
+          </td>
+          <td><%- a.ac=='fb' ?'Facebook':(a.ac=='lk' ? 'Linkedin' :'N/A') %></td>
+          <td>
+            <%- a.status %>
+              <a href="?status=<%- a.id %>" style="margin-left: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z" />
+                </svg>
+              </a>
+          </td>
+          <td><%- a.active %>
+              <a href="?active=<%- a.id %>" style="margin-left: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z" />
+                </svg>
+              </a>
+          </td>
+          <td><a style="color: green;" href="/login?id=<%- a.id %>">Edit</a></td>
+          <td>
+            <a style="color: red;" href="?del=<%- a.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+</body>
+
+</html>

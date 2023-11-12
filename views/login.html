@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="margin-bottom: 1rem;">
+    <a href="/">Home</a>
+  </div>
+  <form action="/login" method="get">
+
+    <div>
+      <label class="block">Account Username</label>
+      <input type="text" name="u" value="<%=username%>" inputmode="numeric" required>
+    </div>
+    <div>
+      <label class="block">Account Password</label>
+      <input type="text" name="p" value="<%= password %>" inputmode="numeric" required>
+    </div>
+    <% if(locals.id) {%>
+      <input type="hidden" name="update" value="1">
+      <input type="hidden" name="id" value="<%= id  %>">
+      <% } %>
+        <div>
+          <button style="background-color: green; color: #fff; padding: 0.5rem 1rem; outline: none;">login</button>
+        </div>
+  </form>
+
+</body>
+
+</html>

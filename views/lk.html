@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%- user && accounts.length %> Linkedin Groups <%- user && `For ${user.username}` %></title>
+
+  <style>
+    .block {
+      display: block;
+    }
+  </style>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+
+    .red {
+      color: red;
+    }
+
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="margin-bottom: 1rem;">
+    <a href="/">Home</a>
+  </div>
+  <h1 style="text-align: center; margin: 0.5rem 0; ">
+    <%- user?`${accounts.length} Linkedin groups for ${user.username}`:'No active Linkedin account' %>
+  </h1>
+
+  <div>
+    <form action="" method="get">
+      <div style="display: flex;">
+        <input type="search" name="s" style="display: block; flex-basis: 80%;"
+          placeholder="search for already scrapped keywords" value="<%= search  %>">
+        <button type="submit" style="flex-basis: 20%;">search</button>
+      </div>
+    </form>
+    <div style="width: 100%; overflow-x: auto; overflow-y: hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Active</th>
+            <th>Li user</th>
+            <th>Members</th>
+
+            <th>Group Link</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% accounts.map(a=>{ %>
+            <tr>
+              <td><%- a.name %></td>
+              <td>
+                <span class="<%-a.active?'green':'red'%>">
+                  <%- a.active %>
+                </span>
+                <a style="margin-left: 0.5rem;" class="<%-a.active?'red':'green'%>" href="?id=<%- a.id %>"> <%-
+                    a.active?'De-activate':'Activate' %></a>
+              </td>
+
+              <td><%- a.user %></td>
+              <td><%- a.members||'N/A' %></td>
+
+              <td><a href="<%- a.link %>" target="_blank" rel="noopener noreferrer"><%- a.link %></a></td>
+              <td><a style="color: red;" href="?del=<%- a.id %>">delete</a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
